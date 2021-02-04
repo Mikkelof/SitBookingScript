@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from time import sleep
-import time
+from datetime import datetime
 
 #Kun instrukser for windows. Først må du ha python installert. Deretter åpne cmd og skriv inn "pip install selenium" og trykk enter.
 #Deretter last ned Chrome hvis du ikke har dette fra før. Så last ned chromedriver.exe fra https://sites.google.com/a/chromium.org/chromedriver/downloads
@@ -30,7 +30,7 @@ loginFortsett = driver.find_element_by_xpath("//*[@id=\"discoform_feide\"]/butto
 loginFortsett.click()
 
 loginUsername = driver.find_element_by_id("username")
-#Skriv inn feide-brukernavnet ditt i parentesen underye
+#Skriv inn feide-brukernavnet ditt i parentesen under
 loginUsername.send_keys("")
 
 loginPassw = driver.find_element_by_id("password")
@@ -42,23 +42,9 @@ loginKnapp.click()
 
 driver.get("https://www.sit.no/trening/treneselv")
 
-sleep(10)
-driver.switch_to_frame(driver.find_element_by_id("ibooking-iframe"));
 
 #Laget så den fjerner alt som ikke er Gløshaugen siden den r laget for meg, Pål og Ask og alle vi trenes på gløs, men dette kan endres på
 
-
-bookingKnapp1 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[2]/input")
-bookingKnapp1.click()
-
-bookingKnapp2 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[3]/input")
-bookingKnapp2.click()
-
-bookingKnapp3 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[4]/input")
-bookingKnapp3.click()
-
-bookingKnapp4 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[5]/input")
-bookingKnapp4.click()
 
 #Intill videre virker det kun på ukedager, ikke helger
 
@@ -97,17 +83,82 @@ tjueenTretti_tjuetoTretti = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[2]/div[
 tjueto_tjuetre = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[2]/div[33]/div"
 
 
-#HER SKRIVER DU INN TIDSPUNKTENE DU VIL BOOKE (TO DAGER FREM I TID, GITT DET ER EN UKEDAG)
 
-ferdigBook1 = driver.find_element_by_xpath(sekstenTretti_syttenTretti)
-ferdigBook1.click()
-sleep(1)
-sisteBookKnapp = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[5]/div/div/div[3]/div[8]/button[1]")
-sisteBookKnapp.click()
-sleep(1)
-okKnapp = driver.find_element_by_xpath("//*[@id=\"ModalDiv\"]/div/div/div[2]/button")
-okKnapp.click()
+n = True
+while n:
+    #HER ENDRER DU DET ANDRE, TREDJE, FJERDE OG FEMTE NUMMERET
+    #FØRSTE NUMMER ER ÅRSTALL
+    #ANDRE NUMMER ER MÅNED (dagens)
+    #TREDJE NUMMER ER DAGEN (ikke dagen du ønsker booke, men dagen i dag)
+    #FJERDE NUMMER ER TIMEN DU ØNSKER Å BOOKE (f.eks 18)
+    #FEMTE NUMMER ER MINUTTET (burde enten være 0 eller 30 siden det er da timene blir åpne for booking. Time 18:30 burde time være 18, min være 30)
+    #SISTE NUMMER ER SEKUND. LA DEN STÅ SOM 1.
+    if datetime.now().timestamp() >= datetime(2021, , , , , 1).timestamp():
+        driver.refresh();
+        sleep(7)
+        driver.switch_to_frame(driver.find_element_by_id("ibooking-iframe"));
+        bookingKnapp1 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[2]/input")
+        bookingKnapp1.click()
 
+        bookingKnapp2 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[3]/input")
+        bookingKnapp2.click()
+
+        bookingKnapp3 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[4]/input")
+        bookingKnapp3.click()
+
+        bookingKnapp4 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[5]/input")
+        bookingKnapp4.click()
+        #HER SKRIVER DU INN TIDSPUNKTET DU VIL BOOKE (TO DAGER FREM I TID, GITT DET ER EN UKEDAG)
+
+        ferdigBook1 = driver.find_element_by_xpath()
+        ferdigBook1.click()
+        sleep(1)
+        sisteBookKnapp = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[5]/div/div/div[3]/div[8]/button[1]")
+        sisteBookKnapp.click()
+        sleep(1)
+        okKnapp = driver.find_element_by_xpath("//*[@id=\"ModalDiv\"]/div/div/div[2]/button")
+        okKnapp.click()
+        n = False
+    else:
+        sleep(1)
+
+n = True
+while n:
+    #HER ENDRER DU DET ANDRE, TREDJE, FJERDE OG FEMTE NUMMERET
+    #FØRSTE NUMMER ER ÅRSTALL
+    #ANDRE NUMMER ER MÅNED (dagens)
+    #TREDJE NUMMER ER DAGEN (ikke dagen du ønsker booke, men dagen i dag)
+    #FJERDE NUMMER ER TIMEN DU ØNSKER Å BOOKE (f.eks 18)
+    #FEMTE NUMMER ER MINUTTET (burde enten være 0 eller 30 siden det er da timene blir åpne for booking. Time 18:30 burde time være 18, min være 30)
+    #SISTE NUMMER ER SEKUND. LA DEN STÅ SOM 1.
+    if datetime.now().timestamp() >= datetime(2021, , , , , 1).timestamp():
+        driver.refresh();
+        sleep(7)
+        driver.switch_to_frame(driver.find_element_by_id("ibooking-iframe"));
+        bookingKnapp1 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[2]/input")
+        bookingKnapp1.click()
+
+        bookingKnapp2 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[3]/input")
+        bookingKnapp2.click()
+
+        bookingKnapp3 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[4]/input")
+        bookingKnapp3.click()
+
+        bookingKnapp4 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[5]/input")
+        bookingKnapp4.click()
+        #HER SKRIVER DU INN TIDSPUNKTET DU VIL BOOKE (TO DAGER FREM I TID, GITT DET ER EN UKEDAG)
+
+        ferdigBook1 = driver.find_element_by_xpath()
+        ferdigBook1.click()
+        sleep(1)
+        sisteBookKnapp = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[5]/div/div/div[3]/div[8]/button[1]")
+        sisteBookKnapp.click()
+        sleep(1)
+        okKnapp = driver.find_element_by_xpath("//*[@id=\"ModalDiv\"]/div/div/div[2]/button")
+        okKnapp.click()
+        n = False
+    else:
+        sleep(1)
 
 sleep(10)
 driver.quit()
