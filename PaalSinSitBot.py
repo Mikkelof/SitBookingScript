@@ -43,11 +43,6 @@ loginKnapp.click()
 driver.get("https://www.sit.no/trening/treneselv")
 
 
-#Laget så den fjerner alt som ikke er Gløshaugen siden den r laget for meg, Pål og Ask og alle vi trenes på gløs, men dette kan endres på
-
-
-#Intill videre virker det kun på ukedager, ikke helger
-
 
 seksTretti_syvTretti = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[3]/div[2]/div"
 seks_syv = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[3]/div[3]/div"
@@ -83,13 +78,16 @@ tjueenTretti_tjuetoTretti = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[2]/div[
 tjueto_tjuetre = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[2]/div[33]/div"
 
 
+#Laget så den fjerner alt som ikke er Gløshaugen siden den r laget for meg, Pål og Ask og alle vi trenes på gløs, men dette kan endres på
+#Intill videre virker det kun på ukedager, ikke helger
+
 
 n = True
 while n:
     #HER ENDRER DU DET ANDRE, TREDJE, FJERDE OG FEMTE NUMMERET
     #FØRSTE NUMMER ER ÅRSTALL
     #ANDRE NUMMER ER MÅNED (dagens)
-    #TREDJE NUMMER ER DAGEN (ikke dagen du ønsker booke, men dagen i dag)
+    #TREDJE NUMMER ER DAGEN (ikke dagen du ønsker booke, men 2 dager før (vil som regel være dagen i dag))
     #FJERDE NUMMER ER TIMEN DU ØNSKER Å BOOKE (f.eks 18)
     #FEMTE NUMMER ER MINUTTET (burde enten være 0 eller 30 siden det er da timene blir åpne for booking. Time 18:30 burde time være 18, min være 30)
     #SISTE NUMMER ER SEKUND. LA DEN STÅ SOM 1.
@@ -127,7 +125,7 @@ while n:
     #HER ENDRER DU DET ANDRE, TREDJE, FJERDE OG FEMTE NUMMERET
     #FØRSTE NUMMER ER ÅRSTALL
     #ANDRE NUMMER ER MÅNED (dagens)
-    #TREDJE NUMMER ER DAGEN (ikke dagen du ønsker booke, men dagen i dag)
+    #TREDJE NUMMER ER DAGEN (ikke dagen du ønsker booke, men 2 dager før (vil som regel være dagen i dag))
     #FJERDE NUMMER ER TIMEN DU ØNSKER Å BOOKE (f.eks 18)
     #FEMTE NUMMER ER MINUTTET (burde enten være 0 eller 30 siden det er da timene blir åpne for booking. Time 18:30 burde time være 18, min være 30)
     #SISTE NUMMER ER SEKUND. LA DEN STÅ SOM 1.
