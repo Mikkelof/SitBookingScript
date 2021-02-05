@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from time import sleep
 from datetime import datetime
 
-#Kun instrukser for windows. Først må du ha python installert. Deretter åpne cmd og skriv inn "pip install selenium" og trykk enter.
+#Kun instrukser for windows. Først må du ha python installert. Husk PATH. Deretter åpne cmd og skriv inn "pip install selenium" og trykk enter.
 #Deretter last ned Chrome hvis du ikke har dette fra før. Så last ned chromedriver.exe fra https://sites.google.com/a/chromium.org/chromedriver/downloads
 #Du finner riktig versjon ved å sjekke chrome versjonen din. Deretter unzipper du chromedriver.exe og plasserer den i "C:\Program Files (x86)" 
 #Bare skriv inn dette i filutforsker og trykk enter eller gå til Lokal disk -> Programfiler (x86)
@@ -115,8 +115,8 @@ while n:
                 sisteBookKnapp = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[5]/div/div/div[3]/div[8]/button[1]")
                 sisteBookKnapp.click()
                 sleep(1)
-                #okKnapp = driver.find_element_by_xpath("//*[@id=\"ModalDiv\"]/div/div/div[2]/button")
-                #okKnapp.click()
+                okKnapp = driver.find_element_by_xpath("//*[@id=\"ModalDiv\"]/div/div/div[2]/button")
+                okKnapp.click()
                 n = False
             except:
                 continue
