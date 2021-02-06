@@ -81,92 +81,57 @@ tjueto_tjuetre = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[2]/div[33]/div"
 #Laget så den fjerner alt som ikke er Gløshaugen siden den r laget for meg, Pål og Ask og alle vi trenes på gløs, men dette kan endres på
 #Intill videre virker det kun på ukedager, ikke helger
 
-n = True
-while n:
-    #HER ENDRER DU DET ANDRE, TREDJE, FJERDE OG FEMTE NUMMERET
-    #FØRSTE NUMMER ER ÅRSTALL
-    #ANDRE NUMMER ER MÅNED (dagens)
-    #TREDJE NUMMER ER DAGEN (ikke dagen du ønsker booke, men 2 dager før (vil som regel være dagen i dag))
-    #FJERDE NUMMER ER TIMEN DU ØNSKER Å BOOKE (f.eks 18)
-    #FEMTE NUMMER ER MINUTTET (burde enten være 0 eller 30 siden det er da timene blir åpne for booking. Time 18:30 burde time være 18, min være 30)
-    #SISTE NUMMER ER SEKUND. LA DEN STÅ SOM 1.
-    if datetime.now().timestamp() >= datetime(2021, , , , , 1).timestamp():
-        while True:
-            try:
-                driver.refresh();
-                sleep(7)
-                driver.switch_to_frame(driver.find_element_by_id("ibooking-iframe"));
-                bookingKnapp1 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[2]/input")
-                bookingKnapp1.click()
+def book_time(maaned, dag, time, minutt, start_slutt_bokstaver):
+    n = True
+    while n:
+        #HER ENDRER DU DET ANDRE, TREDJE, FJERDE OG FEMTE NUMMERET
+        #FØRSTE NUMMER ER ÅRSTALL
+        #ANDRE NUMMER ER MÅNED (dagens)
+        #TREDJE NUMMER ER DAGEN (ikke dagen du ønsker booke, men 2 dager før (vil som regel være dagen i dag))
+        #FJERDE NUMMER ER TIMEN DU ØNSKER Å BOOKE (f.eks 18)
+        #FEMTE NUMMER ER MINUTTET (burde enten være 0 eller 30 siden det er da timene blir åpne for booking. Time 18:30 burde time være 18, min være 30)
+        #SISTE NUMMER ER SEKUND. LA DEN STÅ SOM 1.
+        if datetime.now().timestamp() >= datetime(2021, maaned, dag, time, minutt, 1).timestamp():
+            while True:
+                try:
+                    driver.refresh();
+                    sleep(7)
+                    driver.switch_to_frame(driver.find_element_by_id("ibooking-iframe"));
+                    bookingKnapp1 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[2]/input")
+                    bookingKnapp1.click()
 
-                bookingKnapp2 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[3]/input")
-                bookingKnapp2.click()
+                    bookingKnapp2 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[3]/input")
+                    bookingKnapp2.click()
 
-                bookingKnapp3 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[4]/input")
-                bookingKnapp3.click()
+                    bookingKnapp3 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[4]/input")
+                    bookingKnapp3.click()
 
-                bookingKnapp4 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[5]/input")
-                bookingKnapp4.click()
-                #HER SKRIVER DU INN TIDSPUNKTET DU VIL BOOKE (TO DAGER FREM I TID, GITT DET ER EN UKEDAG)
+                    bookingKnapp4 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[5]/input")
+                    bookingKnapp4.click()
+                    #HER SKRIVER DU INN TIDSPUNKTET DU VIL BOOKE (TO DAGER FREM I TID, GITT DET ER EN UKEDAG)
 
-                ferdigBook1 = driver.find_element_by_xpath()
-                ferdigBook1.click()
-                sleep(1)
-                sisteBookKnapp = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[5]/div/div/div[3]/div[8]/button[1]")
-                sisteBookKnapp.click()
-                sleep(1)
-                #okKnapp = driver.find_element_by_xpath("//*[@id=\"ModalDiv\"]/div/div/div[2]/button")
-                #okKnapp.click()
-                n = False
-            except:
-                continue
-            break
-    else:
-        sleep(1)
-
-n = True
-while n:
-    #HER ENDRER DU DET ANDRE, TREDJE, FJERDE OG FEMTE NUMMERET
-    #FØRSTE NUMMER ER ÅRSTALL
-    #ANDRE NUMMER ER MÅNED (dagens)
-    #TREDJE NUMMER ER DAGEN (ikke dagen du ønsker booke, men 2 dager før (vil som regel være dagen i dag))
-    #FJERDE NUMMER ER TIMEN DU ØNSKER Å BOOKE (f.eks 18)
-    #FEMTE NUMMER ER MINUTTET (burde enten være 0 eller 30 siden det er da timene blir åpne for booking. Time 18:30 burde time være 18, min være 30)
-    #SISTE NUMMER ER SEKUND. LA DEN STÅ SOM 1.
-    if datetime.now().timestamp() >= datetime(2021, , , , , 1).timestamp():
-        while True:
-            try:
-                driver.refresh();
-                sleep(7)
-                driver.switch_to_frame(driver.find_element_by_id("ibooking-iframe"));
-                bookingKnapp1 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[2]/input")
-                bookingKnapp1.click()
-
-                bookingKnapp2 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[3]/input")
-                bookingKnapp2.click()
-
-                bookingKnapp3 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[4]/input")
-                bookingKnapp3.click()
-
-                bookingKnapp4 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[5]/input")
-                bookingKnapp4.click()
-                #HER SKRIVER DU INN TIDSPUNKTET DU VIL BOOKE (TO DAGER FREM I TID, GITT DET ER EN UKEDAG)
-
-                ferdigBook1 = driver.find_element_by_xpath()
-                ferdigBook1.click()
-                sleep(1)
-                sisteBookKnapp = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[5]/div/div/div[3]/div[8]/button[1]")
-                sisteBookKnapp.click()
-                sleep(1)
-                okKnapp = driver.find_element_by_xpath("//*[@id=\"ModalDiv\"]/div/div/div[2]/button")
-                okKnapp.click()
-                n = False
+                    ferdigBook1 = driver.find_element_by_xpath(start_slutt_bokstaver)
+                    ferdigBook1.click()
+                    sleep(1)
+                    sisteBookKnapp = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[5]/div/div/div[3]/div[8]/button[1]")
+                    sisteBookKnapp.click()
+                    sleep(1)
+                    okKnapp = driver.find_element_by_xpath("//*[@id=\"ModalDiv\"]/div/div/div[2]/button")
+                    okKnapp.click()
+                    n = False
+                except:
+                    continue
                 break
-            except:
-                continue
-            break
-    else:
-        sleep(1)
+        else:
+            sleep(1)
+
+#Maaned er måneden bookingen åpner
+#dag er dagen bookingen åpner (2 dager før timen)
+#time er timen bookingen åpner (f.eks klokka 4 på ettermiddagen vil være 16)
+#minutt vil være enten 0 eller 30, avhengig av når du vil ha timen
+#start_slutt_bokstaver er start og slutttiden i bokstavform. (f.eks 16-17 vil være seksten_sytten)
+
+
 
 sleep(10)
 driver.quit()
