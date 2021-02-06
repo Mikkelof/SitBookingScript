@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from time import sleep
 from datetime import datetime
 
-#Kun instrukser for windows. Først må du ha python installert. Deretter åpne cmd og skriv inn "pip install selenium" og trykk enter.
+#Kun instrukser for windows. Først må du ha python installert. Husk PATH. Deretter åpne cmd og skriv inn "pip install selenium" og trykk enter.
 #Deretter last ned Chrome hvis du ikke har dette fra før. Så last ned chromedriver.exe fra https://sites.google.com/a/chromium.org/chromedriver/downloads
 #Du finner riktig versjon ved å sjekke chrome versjonen din. Deretter unzipper du chromedriver.exe og plasserer den i "C:\Program Files (x86)" 
 #Bare skriv inn dette i filutforsker og trykk enter eller gå til Lokal disk -> Programfiler (x86)
