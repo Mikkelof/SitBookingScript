@@ -72,10 +72,10 @@ attenTretti_nittenTretti = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[3]/div[2
 nitten_tjue = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[3]/div[27]/div"
 nittenTretti_tjueTretti = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[3]/div[28]/div"
 tjue_tjueen = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[3]/div[29]/div"
-tjueTretti_tjueenTretti = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[2]/div[30]/div"
-tjueen_tjueto = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[2]/div[31]/div"
-tjueenTretti_tjuetoTretti = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[2]/div[32]/div"
-tjueto_tjuetre = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[2]/div[33]/div"
+tjueTretti_tjueenTretti = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[3]/div[30]/div"
+tjueen_tjueto = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[3]/div[31]/div"
+tjueenTretti_tjuetoTretti = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[3]/div[32]/div"
+tjueto_tjuetre = "//*[@id=\"ScheduleApp\"]/div/div/div[4]/div[3]/div[33]/div"
 
 
 #Laget så den fjerner alt som ikke er Gløshaugen siden den r laget for meg, Pål og Ask og alle vi trenes på gløs, men dette kan endres på
@@ -125,12 +125,11 @@ def book_time(maaned, dag, time, minutt, start_slutt_bokstaver):
         else:
             sleep(1)
 
-#Maaned er måneden bookingen åpner
+#maaned er måneden bookingen åpner
 #dag er dagen bookingen åpner (2 dager før timen)
 #time er timen bookingen åpner (f.eks klokka 4 på ettermiddagen vil være 16)
 #minutt vil være enten 0 eller 30, avhengig av når du vil ha timen
 #start_slutt_bokstaver er start og slutttiden i bokstavform. (f.eks 16-17 vil være seksten_sytten)
-
 
 
 sleep(10)
