@@ -98,7 +98,7 @@ while True:
         bookingKnapp4 = driver.find_element_by_xpath("//*[@id=\"ScheduleApp\"]/div/div/div[2]/div/button[5]/input")
         bookingKnapp4.click()
     except:
-        driver.refresh
+        driver.refresh()
     break        
 
 
