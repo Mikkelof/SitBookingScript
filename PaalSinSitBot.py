@@ -124,6 +124,9 @@ def book_time(maaned, dag, time, minutt, start_slutt_bokstaver):
             sleep(1)
             okKnapp = driver.find_element_by_xpath("//*[@id=\"ModalDiv\"]/div/div/div[2]/button")
             okKnapp.click()
+            sleep(3)
+            backKnapp = driver.find_element_by_id("prev")
+            backKnapp.click()
             n = False
         else:
             sleep(1)
@@ -134,8 +137,8 @@ def book_time(maaned, dag, time, minutt, start_slutt_bokstaver):
 #minutt vil være enten 0 eller 30, avhengig av når du vil ha timen
 #start_slutt_bokstaver er start og slutttiden i bokstavform. (f.eks 16-17 vil være seksten_sytten)
 
-book_time(2, 9, 22, 00, tjueto_tjuetre)
-book_time(2, 9, 22, 00, tjueto_tjuetre)
+book_time(2, 10, 16, 0, femten_seksten)
+book_time(2, 10, 17, 0, sytten_atten)
 
 
 sleep(10)
